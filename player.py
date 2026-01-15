@@ -1,7 +1,35 @@
 from map import Map
 
 class Player():
+    """
+    Docstring for PLayer Class
+    
+    :param moves: How many times he has moved
+    :type moves: int
+    :param coins: Amount of coins
+    :type coins: int
+    :param map: A Map object that holds the grid map
+    :type map: Map
+    :param current_position: Current position of player.
+    Default = (1,1)
+    :type current_position: tuple
+    """
+
     def __init__(self,moves: int,coins:int ,map: Map, current_position: tuple = (1,1)) -> None:
+        """
+        Docstring for PLayer Init Class
+        
+        :param moves: How many times he has moved
+        :type moves: int
+        :param coins: Amount of coins
+        :type coins: int
+        :param map: A Map object that holds the grid map
+        :type map: Map
+        :param current_position: Current position of player.
+        Default = (1,1)
+        :type current_position: tuple
+        """
+
         self.current_position = current_position
         self.moves = moves
         self.coins = coins
