@@ -2,10 +2,14 @@ from random import randint
 
 
 class Map:
+    """
+    Constants fyrir áttirnar (Döh)
+    """
     NORTH = 'n'
     EAST = 'e'
     SOUTH = 's'
     WEST = 'w'
+
 
     def __init__(self, positions, lever_tiles, tiles, victory_tile):
         self.postition = positions
@@ -14,6 +18,10 @@ class Map:
         self.victory_tile = victory_tile
         pass
 
+
+    """
+    Level 1 placeholder tölur
+    """
     def availableMoves(self, position):
         valid_moves = {
             (1, 1): [Map.NORTH],
@@ -28,11 +36,20 @@ class Map:
         }
         return valid_moves.get(position, [])
 
+
+    """
+    seinna fyrri flóknari level
+    """
     def generateMap():
         pass
 
-    def victory():
+    """
+    Victory tile f. level 1
+    """
+    def victory(self, victory_tile):
         victory_tile = {(3,1)}
+        if victory_tile == True:
+            return "227.30.175.27"
         
     
     def levers(self):
