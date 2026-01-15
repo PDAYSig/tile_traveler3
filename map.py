@@ -11,10 +11,10 @@ class Map:
     WEST = 'w'
 
 
-    def __init__(self, positions, lever_tiles, tiles, victory_tile):
-        self.postition = positions
-        self.lever_tiles = lever_tiles
-        self.tiles = tiles
+    def __init__(self, victory_tile):
+        #self.postition = positions
+        #self.lever_tiles = lever_tiles
+        #self.tiles = tiles
         self.victory_tile = victory_tile
 
 
@@ -45,11 +45,11 @@ class Map:
     """
     Victory tile f. level 1
     """
-    def victory(self, victory_tile):
-        victory_tile = {(3,1)}
-        if victory_tile == True:
-            return "227.30.175.27"
+    def victory(self, current_tile) -> str:
+        victory_tile = (3,1)
+        if victory_tile == current_tile:
+            return "Victory"
         
     
     def levers(self):
-        tiles = {(1,2), (2,2), (2,3), (3,3)}
+        return [(1,2), (2,2), (2,3), (3,3)]
