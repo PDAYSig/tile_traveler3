@@ -12,26 +12,40 @@ def main():
 
     # Create New Game
     if load_command == "N":
-        SaveData.new_game()
+        create_map: Map = Map((3, 3))
+        create_player: Player = Player(0, 0, create_map)
     # Continue GAme
-    elif load_command == "C":
+    else:
+        create_map = "SHIT"
+        create_player = "Shit"
         SaveData.load_game()
 
     # Get player data
 
     # Initializes the player and map when starting
 
-    create_map: Map =  Map(position, lever_tiles, tiles, victory_tiles)
-    create_player: Player = Player(amount_of_moves, coins, create_map, current_position)
-
     # Run the game loop for player
     while True:
-        # available_moves = Player.display_moves()
+        moves: str = create_player.display_available_moves()
+        print(moves)
 
-        print("SHIT")
+        print("-----------")
 
+        move_direction: str = input().lower()
+        if move_direction in create_map.availableMoves(
+            create_player.current_position
+        ):
+            create_player.move_player(move_direction)
+            curr_pos = create_player.current_position
+            print(f"Your position is: {curr_pos}")
+            ip = create_map.victory(curr_pos)
+
+            if ip == "Victory":
+                print(ip)
+                break
+
+            # create_player.
         # SaveData.save_game()
-        break
 
 
 def start_screen() -> str:
