@@ -13,6 +13,8 @@ class SaveData:
             save_state.write(f"{tile} {map[tile]}\n")
         save_state.write(f"{player_tile}\n")
         save_state.write(f"{winning_tile}\n")
+        save_state.write(f"{coin_tally}\n")
+        save_state.write(f"{[lever_position for lever_position in unflipped_levers]}")
 
 
     @staticmethod
