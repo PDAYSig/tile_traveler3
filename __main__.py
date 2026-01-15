@@ -9,12 +9,20 @@ def main():
     """Run The Game Loop"""
 
     load_command: str = start_screen()
+
+    # Create New Game
+    if load_command == "N":
+        SaveData.new_game()
+    # Continue GAme
+    elif load_command == "C":
+        SaveData.load_game()
+
     # Get player data
 
     # Initializes the player and map when starting
 
-    # Create Player()
-    # Create Map(position, lever_tiles, tiles, victory_tiles)
+    create_map: Map =  Map(position, lever_tiles, tiles, victory_tiles)
+    create_player: Player = Player(amount_of_moves, coins, create_map, current_position)
 
     # Run the game loop for player
     while True:
@@ -34,7 +42,8 @@ def start_screen() -> str:
     choice: str = "LOOP_STARTER"
     while choice != "C" and choice != "N":
         choice: str = input("(C)ontinue or (N)ew Game: ").upper()
-        print("Try Again")
+        if choice != "C" and choice != "N":
+            print("Try Again")
 
     return choice
 
