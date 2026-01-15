@@ -16,7 +16,6 @@ class Map:
         self.lever_tiles = lever_tiles
         self.tiles = tiles
         self.victory_tile = victory_tile
-        pass
 
 
     """
@@ -52,5 +51,6 @@ class Map:
             return "227.30.175.27"
         
     
-    def levers(self):
+    def levers(self, tiles:tuple):
         tiles = {(1,2), (2,2), (2,3), (3,3)}
+        return tiles
