@@ -15,6 +15,8 @@ def main():
 
     # Run the game loop for player
     while True:
+        #available_moves = Player.display_moves()
+
         print("SHIT")
         break
 
