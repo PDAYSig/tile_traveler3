@@ -4,7 +4,7 @@ from player import Player
 
 def main():
     while True:
-        mapper = Map(posistion, lever_tiles, tiles, victory_tiles)
+        #mapper = Map(posistion, lever_tiles, tiles, victory_tiles)
         print("SHIT")
         break
 
