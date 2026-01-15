@@ -25,18 +25,5 @@ def move():
 def available_moves():
     pass
 
-def update_location(location: tuple, move_direction: str):
-    x, y = location
-    if move_direction == "n":
-        y += 1
-    elif move_direction == "e":
-        x += 1
-    elif move_direction == "s":
-        y -= 1
-    elif move_direction == "w":
-        x -= 1
-    
-    location == (x, y)
-    return location
 
 

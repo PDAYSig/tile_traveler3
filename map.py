@@ -16,7 +16,6 @@ class Map:
         self.lever_tiles = lever_tiles
         self.tiles = tiles
         self.victory_tile = victory_tile
-        pass
 
 
     """
