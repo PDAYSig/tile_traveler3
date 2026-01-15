@@ -25,6 +25,5 @@ def move():
 def available_moves():
     pass
 
-def current_location():
-    # 
-    pass
+
+

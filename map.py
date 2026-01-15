@@ -16,20 +16,19 @@ class Map:
         self.lever_tiles = lever_tiles
         self.tiles = tiles
         self.victory_tile = victory_tile
-        pass
 
 
     """
     Level 1 placeholder tölur
     """
-    def availableMoves(self, position):
+    def availableMoves(self, position: tuple):
         valid_moves = {
             (1, 1): [Map.NORTH],
             (1, 2): [Map.NORTH, Map.EAST, Map.SOUTH],
             (1, 3): [Map.EAST, Map.SOUTH],
             (2, 1): [Map.NORTH],
             (2, 2): [Map.SOUTH, Map.WEST],
-            (2, 3): [Map.EAST, Map.WEST],  
+            (2, 3): [Map.EAST, Map.WEST],
             (3, 1): [],
             (3, 2): [Map.NORTH, Map.SOUTH],
             (3, 3): [Map.SOUTH, Map.WEST],
