@@ -28,4 +28,3 @@ def available_moves():
 def current_location():
     # 
     pass
-
