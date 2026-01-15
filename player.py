@@ -1,4 +1,5 @@
 from map import Map
+from random import randint
 
 class Player():
     """
@@ -66,6 +67,33 @@ class Player():
         
         self.current_position = (x, y)
         return self.current_position
+    
+    def get_coin() -> int:
+        amount_of_coins = randint(1,10)
+        ### Randomize later on
+        return amount_of_coins
+    
+    def lever_check(self):
+        levers: list = self.map.levers()
+        if self.current_position in levers:
+            return True
+        return False 
+    
+    def lever_pull(self):
+        """
+        Get coins or End the game eda einh Kdv Hafthor
+        """
+        coins: int = self.coins 
+        coins += self.get_coin()
+
+        chance = randint(1,100)
+        death = 67
+
+        if death == chance:
+            pass
+            # return game_over()
+        
+        return coins
 
 # def main():
 #     kort = Map((1,1),{(1,2), (2,2), (2,3), (3,3)},(1,1),(3,3))
