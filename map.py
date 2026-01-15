@@ -12,7 +12,7 @@ class Map:
 
 
     def __init__(self, positions, lever_tiles, tiles, victory_tile):
-        self.postition = positions
+        self.position = positions
         self.lever_tiles = lever_tiles
         self.tiles = tiles
         self.victory_tile = victory_tile
@@ -40,12 +40,12 @@ class Map:
     seinna fyrri flóknari level
     """
     def generateMap():
-        pass
+        X, y = randint(3,10)
 
     """
     Victory tile f. level 1
     """
-    def victory(self, victory_tile):
+    def victory(self, victory_tile:tuple):
         victory_tile = {(3,1)}
         if victory_tile == True:
             return "227.30.175.27"
@@ -53,4 +53,7 @@ class Map:
     
     def levers(self, tiles:tuple):
         tiles = {(1,2), (2,2), (2,3), (3,3)}
-        return tiles
+        lever1 = tiles[0]
+        lever2 = tiles[1]
+        lever3 = tiles[2]
+        lever4 = tiles[3] #os.remove
