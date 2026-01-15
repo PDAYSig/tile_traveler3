@@ -45,7 +45,7 @@ class Map:
     """
     Victory tile f. level 1
     """
-    def victory(self, current_tile) -> str:
+    def victory(self, current_tile) -> str | None:
         victory_tile = (3,1)
         if victory_tile == current_tile:
             return "Victory"
