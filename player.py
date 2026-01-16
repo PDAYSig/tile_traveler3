@@ -68,9 +68,16 @@ class Player():
         self.current_position = (x, y)
         return self.current_position
     
-    def get_coin() -> int:
+    def get_coin(self) -> int:
+        """
+        Add coins to Player and return how many he got
+
+        :return: Amount of coins gained
+        :rtype: int
+        """
         amount_of_coins = randint(1,10)
         ### Randomize later on
+        self.coins += amount_of_coins
         return amount_of_coins
     
     def lever_check(self):
@@ -79,21 +86,19 @@ class Player():
             return True
         return False 
     
-    def lever_pull(self):
+    def lever_pull(self) -> int | str:
         """
         Get coins or End the game eda einh Kdv Hafthor
         """
-        coins: int = self.coins 
-        coins += self.get_coin()
-
         chance = randint(1,100)
         death = 67
 
         if death == chance:
-            pass
-            # return game_over()
+            return "GAME_OVER"
         
+        coins = self.get_coin()
         return coins
+        
 
 # def main():
 #     kort = Map((1,1),{(1,2), (2,2), (2,3), (3,3)},(1,1),(3,3))
