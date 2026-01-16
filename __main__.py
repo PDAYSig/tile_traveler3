@@ -12,12 +12,13 @@ def main():
 
     # Create New Game
     if load_command == "N":
-        create_map: Map = Map((3, 3))
-        create_player: Player = Player(0, 0, create_map)
+        main_map: Map = Map((3, 3))
+        main_player: Player = Player(0, 0, main_map)
     # Continue GAme
     else:
-        create_map = "SHIT"
-        create_player = "Shit"
+        # TODO: Load Game
+        main_map = ...
+        main_player = ...
         SaveData.load_game()
 
     # Get player data
@@ -25,27 +26,56 @@ def main():
     # Initializes the player and map when starting
 
     # Run the game loop for player
+
     while True:
-        moves: str = create_player.display_available_moves()
+        # Movement options and current position
+        moves: str = main_player.display_available_moves()
+        current_pos: tuple[int, int] = main_player.current_position
+
+        # Save game here?
+        print("-" * 30)
+        print("Type c to See amount of coins")
         print(moves)
 
-        print("-----------")
+        move_direction: str = input("> ").lower()
 
-        move_direction: str = input().lower()
-        if move_direction in create_map.availableMoves(
-            create_player.current_position
-        ):
-            create_player.move_player(move_direction)
-            curr_pos = create_player.current_position
-            print(f"Your position is: {curr_pos}")
-            ip = create_map.victory(curr_pos)
+        # See Amount of Coins
+        if move_direction == "c" or move_direction == "coins":
+            print(f"You have {main_player.coins} Coins")
+            continue
 
-            if ip == "Victory":
-                print(ip)
+        if move_direction in main_map.availableMoves(current_pos):
+            main_player.move_player(move_direction)
+
+            print(f"Your position is: {current_pos}")
+
+            # Check for lever
+            if main_player.lever_check():
+                print("This Tile Has A Lever")
+                print("Do You Want To Pull It: Y/N")
+
+                pull: str = input("> ").lower()
+                if pull == "y":
+                    death_or_coins: int | str = main_player.lever_pull()
+                    if death_or_coins == "GAME_OVER":
+                        print("You Were Unlucky And Lost The Game")
+                        break
+
+                    print(f"You Got {death_or_coins} Coins")
+
+                else:
+                    print("You Decided Not To Pull The Lever")
+
+            # Check if won
+            victory_message: str | None = main_map.victory(current_pos)
+            if victory_message == "Victory":
+                print(victory_message)
                 break
 
-            # create_player.
-        # SaveData.save_game()
+        else:
+            print("That Is Not A Valid Direction\nTry Again")
+
+        # TODO: SaveData.save_game()
 
 
 def start_screen() -> str:
